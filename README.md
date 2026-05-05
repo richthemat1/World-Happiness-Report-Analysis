@@ -61,6 +61,18 @@ Cleans the raw CSV and produces `happiness_clean.csv` used by all other notebook
 ### `visualisation.ipynb`
 Six charts covering the full dataset.
 
+![Score trends](https://raw.githubusercontent.com/richthemat1/World-Happiness-Report-Analysis/assets/plot_trends.png)
+
+![Score distribution by year](https://raw.githubusercontent.com/richthemat1/World-Happiness-Report-Analysis/assets/plot_score_distribution.png)
+
+![Top 10 countries 2025](https://raw.githubusercontent.com/richthemat1/World-Happiness-Report-Analysis/assets/plot_top10_2025.png)
+
+![Factor breakdown top 15](https://raw.githubusercontent.com/richthemat1/World-Happiness-Report-Analysis/assets/plot_breakdown_top15.png)
+
+![Correlation heatmap](https://raw.githubusercontent.com/richthemat1/World-Happiness-Report-Analysis/assets/plot_correlation.png)
+
+![Rank history heatmap](https://raw.githubusercontent.com/richthemat1/World-Happiness-Report-Analysis/assets/plot_rank_heatmap.png)
+
 ---
 
 ### `predictions.ipynb`
@@ -75,6 +87,10 @@ Traditional ML models benchmarked with time-series cross-validation.
 
 Linear/Ridge win because happiness scores are highly autocorrelated — last year's score is the dominant predictor. Outputs `happiness_forecast_2026.csv`.
 
+![Feature importance](https://raw.githubusercontent.com/richthemat1/World-Happiness-Report-Analysis/assets/plot_feature_importance.png)
+
+![Predicted vs actual](https://raw.githubusercontent.com/richthemat1/World-Happiness-Report-Analysis/assets/plot_pred_vs_actual.png)
+
 ---
 
 ### `neural_language_predictions.ipynb`
@@ -86,6 +102,10 @@ Two neural architectures trained on 4-year rolling windows.
 | **Transformer** (d=32, 4 heads) | **0.140** | **0.973** |
 
 The Transformer outperforms LSTM by ~2×, handling the dataset's uneven year gaps better via attention. Produces autoregressive forecasts to 2030 for all 147 countries with 2025 data, saved to `happiness_neural_forecast_2026_2030.csv`.
+
+![Neural training curves](https://raw.githubusercontent.com/richthemat1/World-Happiness-Report-Analysis/assets/plot_nn_training_curves.png)
+
+![Neural forecast trends](https://raw.githubusercontent.com/richthemat1/World-Happiness-Report-Analysis/assets/plot_nn_forecast_trends.png)
 
 **2030 predicted top 5:**
 
@@ -101,6 +121,22 @@ The Transformer outperforms LSTM by ~2×, handling the dataset's uneven year gap
 
 ### `Russia_analysis_forecast.ipynb`
 Country deep-dive with 10 sections.
+
+![Russia timeline](https://raw.githubusercontent.com/richthemat1/World-Happiness-Report-Analysis/assets/plot_russia_timeline.png)
+
+![Russia breakdown](https://raw.githubusercontent.com/richthemat1/World-Happiness-Report-Analysis/assets/plot_russia_breakdown.png)
+
+![Russia 2022 paradox](https://raw.githubusercontent.com/richthemat1/World-Happiness-Report-Analysis/assets/plot_russia_2022_paradox.png)
+
+![Russia vs peers](https://raw.githubusercontent.com/richthemat1/World-Happiness-Report-Analysis/assets/plot_russia_peers.png)
+
+![Russia factors vs top 10](https://raw.githubusercontent.com/richthemat1/World-Happiness-Report-Analysis/assets/plot_russia_factors.png)
+
+![Russia freedom and corruption](https://raw.githubusercontent.com/richthemat1/World-Happiness-Report-Analysis/assets/plot_russia_freedom_corruption.png)
+
+![Russia percentile](https://raw.githubusercontent.com/richthemat1/World-Happiness-Report-Analysis/assets/plot_russia_percentile.png)
+
+![Russia forecast](https://raw.githubusercontent.com/richthemat1/World-Happiness-Report-Analysis/assets/plot_russia_forecast.png)
 
 **Russia forecast (ensemble):**
 
