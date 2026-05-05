@@ -3,6 +3,9 @@ happiness_clean.csv
 happiness_forecast_2026.csv
 happiness_neural_forecast_2026_2030.csv
 
+# Plot outputs — recreated by running the notebooks
+plot_*.png
+
 # Jupyter
 .ipynb_checkpoints/
 */.ipynb_checkpoints/
