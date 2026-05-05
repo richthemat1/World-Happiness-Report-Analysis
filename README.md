@@ -2,21 +2,23 @@
 
 End-to-end analysis of the World Happiness Report dataset covering 168 countries across 14 years, with machine learning and neural network forecasts to 2030.
 
+![Score trends](plot_trends.png)
+
 ---
 
 ## Project structure
 
 ```
-├── world_happiness_report_2005_2025.csv   # Raw data (source)
-├── happiness_clean.csv                    # Cleaned dataset (generated)
-├── happiness_forecast_2026.csv            # ML forecast for 2026 (generated)
+├── world_happiness_report_2005_2025.csv    # Raw data (source)
+├── happiness_clean.csv                     # Cleaned dataset (generated)
+├── happiness_forecast_2026.csv             # ML forecast for 2026 (generated)
 ├── happiness_neural_forecast_2026_2030.csv # Neural forecast 2026–2030 (generated)
 │
-├── main_analysis.ipynb                    # Step 1 — data cleaning & feature engineering
-├── visualisation.ipynb                    # Step 2 — charts and exploration
-├── predictions.ipynb                      # Step 3 — ML predictions (Linear, Ridge, RF)
-├── neural_language_predictions.ipynb      # Step 4 — LSTM & Transformer forecasts
-└── Russia_analysis_forecast.ipynb                  # Deep-dive: Russia analysis & forecast
+├── main_analysis.ipynb                     # Step 1 — data cleaning & feature engineering
+├── visualisation.ipynb                     # Step 2 — charts and exploration
+├── predictions.ipynb                       # Step 3 — ML predictions (Linear, Ridge, RF)
+├── neural_language_predictions.ipynb       # Step 4 — LSTM & Transformer forecasts
+└── Russia_analysis_forecast.ipynb          # Deep-dive: Russia analysis & forecast
 ```
 
 ---
@@ -24,6 +26,7 @@ End-to-end analysis of the World Happiness Report dataset covering 168 countries
 ## Dataset
 
 **Source:** World Happiness Report (Gallup World Poll)  
+**Kaggle:** [World Happiness Report 2005–2025](https://www.kaggle.com/datasets/elvisbui/world-happiness-report-2005-2025-panel?resource=download)  
 **Coverage:** 2011–2025, 168 countries, 2,116 rows
 
 | Column | Description |
@@ -55,18 +58,25 @@ Cleans the raw CSV and produces `happiness_clean.csv` used by all other notebook
 - Duplicate and sanity checks (score range, rank uniqueness, component-sum verification)
 - Adds `tier`, `has_breakdown`, and `score_change_yoy` columns
 
-### `visualisation.ipynb`
-Six charts covering the full dataset:
+---
 
-- Score distribution by year (boxplots)
-- Top 10 countries in 2025 with confidence intervals
-- Trend lines for selected countries (2011–2025)
-- Stacked factor breakdown for the top 15 countries
-- Correlation heatmap of all happiness factors
-- Rank history heatmap across selected years
+### `visualisation.ipynb`
+Six charts covering the full dataset.
+
+![Score distribution by year](plot_score_distribution.png)
+
+![Top 10 countries 2025](plot_top10_2025.png)
+
+![Factor breakdown top 15](plot_breakdown_top15.png)
+
+![Correlation heatmap](plot_correlation.png)
+
+![Rank history heatmap](plot_rank_heatmap.png)
+
+---
 
 ### `predictions.ipynb`
-Traditional ML models benchmarked with time-series cross-validation:
+Traditional ML models benchmarked with time-series cross-validation.
 
 | Model | MAE | R² |
 |---|---|---|
@@ -77,8 +87,14 @@ Traditional ML models benchmarked with time-series cross-validation:
 
 Linear/Ridge win because happiness scores are highly autocorrelated — last year's score is the dominant predictor. Outputs `happiness_forecast_2026.csv`.
 
+![Feature importance](plot_feature_importance.png)
+
+![Predicted vs actual](plot_pred_vs_actual.png)
+
+---
+
 ### `neural_language_predictions.ipynb`
-Two neural architectures trained on 4-year rolling windows:
+Two neural architectures trained on 4-year rolling windows.
 
 | Model | MAE | R² |
 |---|---|---|
@@ -86,6 +102,10 @@ Two neural architectures trained on 4-year rolling windows:
 | **Transformer** (d=32, 4 heads) | **0.140** | **0.973** |
 
 The Transformer outperforms LSTM by ~2×, handling the dataset's uneven year gaps better via attention. Produces autoregressive forecasts to 2030 for all 147 countries with 2025 data, saved to `happiness_neural_forecast_2026_2030.csv`.
+
+![Neural training curves](plot_nn_training_curves.png)
+
+![Neural forecast trends](plot_nn_forecast_trends.png)
 
 **2030 predicted top 5:**
 
@@ -97,19 +117,26 @@ The Transformer outperforms LSTM by ~2×, handling the dataset's uneven year gap
 | 4 | Costa Rica | 7.34 |
 | 5 | Sweden | 7.32 |
 
-### `Russia_analysis_forecast.ipynb`
-Country deep-dive with 10 sections:
+---
 
-1. Score & rank timeline with annotated key events
-2. Factor breakdown (stacked bar + trend lines, 2019–2025)
-3. **The 2022 paradox** — why happiness rose the year Russia invaded Ukraine
-4. Russia vs peers: Kazakhstan, Poland, Ukraine, China, Germany, Finland
-5. Weakest and fastest-changing factors (vs Top-10 average)
-6. Corruption & freedom trends vs peer countries
-7. Russia's percentile position in the global distribution (2011–2025)
-8. Neural network training (LSTM + Transformer)
-9. Forecast visualisation with uncertainty band
-10. Key findings summary printout
+### `Russia_analysis_forecast.ipynb`
+Country deep-dive with 10 sections.
+
+![Russia timeline](plot_russia_timeline.png)
+
+![Russia breakdown](plot_russia_breakdown.png)
+
+![Russia 2022 paradox](plot_russia_2022_paradox.png)
+
+![Russia vs peers](plot_russia_peers.png)
+
+![Russia factors vs top 10](plot_russia_factors.png)
+
+![Russia freedom and corruption](plot_russia_freedom_corruption.png)
+
+![Russia percentile](plot_russia_percentile.png)
+
+![Russia forecast](plot_russia_forecast.png)
 
 **Russia forecast (ensemble):**
 
@@ -127,17 +154,6 @@ Both models agree Russia trends downward from 2026, likely settling near its 201
 
 ## Setup
 
-### Requirements
-
-```
-pandas
-numpy
-matplotlib
-seaborn
-scikit-learn
-torch          # CPU build is sufficient
-```
-
 ### Install
 
 ```bash
@@ -148,11 +164,11 @@ pip install torch --index-url https://download.pytorch.org/whl/cpu
 ### Run order
 
 ```
-1. main_analysis.ipynb            # generates happiness_clean.csv
-2. visualisation.ipynb            # requires happiness_clean.csv
-3. predictions.ipynb              # requires happiness_clean.csv
-4. neural_language_predictions.ipynb  # requires happiness_clean.csv
-5. Russia_analysis_forecast.ipynb          # requires happiness_clean.csv
+1. main_analysis.ipynb                 # generates happiness_clean.csv
+2. visualisation.ipynb                 # requires happiness_clean.csv
+3. predictions.ipynb                   # requires happiness_clean.csv
+4. neural_language_predictions.ipynb   # requires happiness_clean.csv
+5. Russia_analysis_forecast.ipynb      # requires happiness_clean.csv
 ```
 
 Notebooks 2–5 are independent of each other once step 1 is complete.
@@ -162,7 +178,7 @@ Notebooks 2–5 are independent of each other once step 1 is complete.
 ## Key findings
 
 - **Nordic dominance is stable** — Finland, Denmark, Iceland, Sweden have held the top spots every year since 2013 with no signs of displacement by 2030.
-- **GDP alone doesn't explain happiness** — the `dystopia_plus_residual` term (unexplained wellbeing) often exceeds the GDP contribution for top-ranked countries, pointing to cultural and social factors the model cannot fully capture.
+- **GDP alone doesn't explain happiness** — the `dystopia_plus_residual` term often exceeds the GDP contribution for top-ranked countries, pointing to cultural and social factors the model cannot fully capture.
 - **The 2022 Russia paradox** — social support and perceived freedom *rose* in Russian survey data immediately after the Ukraine invasion, consistent with documented wartime rally effects in self-reported wellbeing surveys.
 - **Kazakhstan has overtaken Russia** every year in the dataset and the gap is widening (+0.8 points in 2025). Poland shows the same pattern.
 - **Corruption and generosity are Russia's biggest drags** — both sit far below peer countries and show minimal improvement over 14 years.
