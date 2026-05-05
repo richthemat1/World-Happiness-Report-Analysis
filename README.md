@@ -1,5 +1,13 @@
 # World Happiness Report — Analysis & Predictions (2011–2030)
 
+![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-2.11-EE4C2C?logo=pytorch&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-1.7-F7931E?logo=scikit-learn&logoColor=white)
+![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange?logo=jupyter&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Countries](https://img.shields.io/badge/Countries-168-blueviolet)
+![Years](https://img.shields.io/badge/Years-2011--2025-informational)
+
 End-to-end analysis of the World Happiness Report dataset covering 168 countries across 14 years, with machine learning and neural network forecasts to 2030.
 
 ---
