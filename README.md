@@ -129,7 +129,7 @@ The Transformer outperforms LSTM by ~2×, handling the dataset's uneven year gap
 ---
 
 ### `map.ipynb`
-Interactive world map showing happiness ratings for all 147 countries in the 2025 report, colour-coded by tier.
+Interactive world map showing happiness ratings for all **147 countries** covered in the **2025 report**, colour-coded by tier. The full dataset spans 168 unique countries across 14 years, but annual coverage varies (2013 is absent entirely, and later years average ~147 countries per year).
 
 - **Top** (green) — 30 countries, score 6.69–7.76
 - **Upper-Mid** (light green) — 40 countries, score 6.01–6.64
