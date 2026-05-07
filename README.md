@@ -138,7 +138,7 @@ Interactive world map showing happiness ratings for all **147 countries** covere
 
 Uses ISO-3 country codes for reliable rendering. Countries with no WHR coverage (North Korea, Cuba, Eritrea, etc.) appear grey — the report simply does not survey them. Includes a companion scrollable bar chart with all 147 countries sorted by score.
 
-Requires `plotly` (`pip install plotly`) and `happiness_clean.csv` from `main_analysis.ipynb`.
+Requires `plotly` and `pycountry` (`pip install plotly pycountry`) and `happiness_clean.csv` from `main_analysis.ipynb`.
 
 ---
 
@@ -180,7 +180,7 @@ Both models agree Russia trends downward from 2026, likely settling near its 201
 ### Install
 
 ```bash
-pip install pandas numpy matplotlib seaborn scikit-learn plotly
+pip install pandas numpy matplotlib seaborn scikit-learn plotly pycountry
 pip install torch --index-url https://download.pytorch.org/whl/cpu
 ```
 
