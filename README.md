@@ -68,7 +68,7 @@ Cleans the raw CSV and produces `happiness_clean.csv` used by all other notebook
 ---
 
 ### `visualisation.ipynb`
-Six charts covering the full dataset.
+Nine charts covering the full dataset.
 
 ![Score trends](https://raw.githubusercontent.com/richthemat1/World-Happiness-Report-Analysis/assets/plot_trends.png)
 
@@ -81,6 +81,12 @@ Six charts covering the full dataset.
 ![Correlation heatmap](https://raw.githubusercontent.com/richthemat1/World-Happiness-Report-Analysis/assets/plot_correlation.png)
 
 ![Rank history heatmap](https://raw.githubusercontent.com/richthemat1/World-Happiness-Report-Analysis/assets/plot_rank_heatmap.png)
+
+![Regional trends](https://raw.githubusercontent.com/richthemat1/World-Happiness-Report-Analysis/assets/plot_regional_trends.png)
+
+![Biggest movers](https://raw.githubusercontent.com/richthemat1/World-Happiness-Report-Analysis/assets/plot_biggest_movers.png)
+
+![Score volatility](https://raw.githubusercontent.com/richthemat1/World-Happiness-Report-Analysis/assets/plot_volatility_scatter.png)
 
 ---
 
