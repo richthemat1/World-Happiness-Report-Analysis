@@ -24,7 +24,8 @@ End-to-end analysis of the World Happiness Report dataset covering 168 countries
 ├── visualisation.ipynb                     # Step 2 — charts and exploration
 ├── predictions.ipynb                       # Step 3 — ML predictions (Linear, Ridge, RF)
 ├── neural_language_predictions.ipynb       # Step 4 — LSTM & Transformer forecasts
-└── Russia_analysis_forecast.ipynb          # Deep-dive: Russia analysis & forecast
+├── Russia_analysis_forecast.ipynb          # Deep-dive: Russia analysis & forecast
+└── map.ipynb                               # Interactive world happiness map (2025)
 ```
 
 ---
@@ -127,6 +128,20 @@ The Transformer outperforms LSTM by ~2×, handling the dataset's uneven year gap
 
 ---
 
+### `map.ipynb`
+Interactive world map showing happiness ratings for all 147 countries in the 2025 report, colour-coded by tier.
+
+- **Top** (green) — 30 countries, score 6.69–7.76
+- **Upper-Mid** (light green) — 40 countries, score 6.01–6.64
+- **Lower-Mid** (orange) — 40 countries, score 4.67–6.01
+- **Bottom** (red) — 37 countries, score 1.45–4.66
+
+Uses ISO-3 country codes for reliable rendering. Countries with no WHR coverage (North Korea, Cuba, Eritrea, etc.) appear grey — the report simply does not survey them. Includes a companion scrollable bar chart with all 147 countries sorted by score.
+
+Requires `plotly` (`pip install plotly`) and `happiness_clean.csv` from `main_analysis.ipynb`.
+
+---
+
 ### `Russia_analysis_forecast.ipynb`
 Country deep-dive with 10 sections.
 
@@ -165,7 +180,7 @@ Both models agree Russia trends downward from 2026, likely settling near its 201
 ### Install
 
 ```bash
-pip install pandas numpy matplotlib seaborn scikit-learn
+pip install pandas numpy matplotlib seaborn scikit-learn plotly
 pip install torch --index-url https://download.pytorch.org/whl/cpu
 ```
 
@@ -177,9 +192,10 @@ pip install torch --index-url https://download.pytorch.org/whl/cpu
 3. predictions.ipynb                   # requires happiness_clean.csv
 4. neural_language_predictions.ipynb   # requires happiness_clean.csv
 5. Russia_analysis_forecast.ipynb      # requires happiness_clean.csv
+6. map.ipynb                           # requires happiness_clean.csv + plotly
 ```
 
-Notebooks 2–5 are independent of each other once step 1 is complete.
+Notebooks 2–6 are independent of each other once step 1 is complete.
 
 ---
 
